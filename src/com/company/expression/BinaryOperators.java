@@ -1,6 +1,6 @@
-package com.company;
+package com.company.expression;
 
-public abstract class BinaryOperators implements Expression{
+public abstract class BinaryOperators implements Expression {
     protected String name;
     protected Expression firstArg;
     protected Expression secondArg;

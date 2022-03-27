@@ -1,4 +1,4 @@
-package com.company;
+package com.company.expression;
 
 public class Subtract extends BinaryOperators {
 

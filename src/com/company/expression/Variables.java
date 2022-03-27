@@ -1,4 +1,4 @@
-package com.company;
+package com.company.expression;
 
 public abstract class Variables implements Expression{
     protected String name;

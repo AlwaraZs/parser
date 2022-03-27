@@ -1,6 +1,6 @@
-package com.company;
+package com.company.expression;
 
-public class Const extends Variables{
+public class Const extends Variables {
     Const (int value) {
         super(value);
     }

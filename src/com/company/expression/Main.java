@@ -1,4 +1,4 @@
-package com.company;
+package com.company.expression;
 
 public class Main {
 
@@ -21,6 +21,6 @@ public class Main {
         System.out.println(a + "/n" + str);
          */
         Parser parser = new Parser();
-        System.out.println(parser.parse("(F())"));
+        System.out.println(parser.parse("x * 2 + -1").evaluate(1));
     }
 }
