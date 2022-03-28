@@ -1,11 +1,14 @@
 package com.company.expression;
 
+import com.company.expression.unaryOperators.*;
+import com.company.expression.args.*;
+import com.company.expression.binaryOperators.*;
 import java.util.*;
 
 public class Parser {
-    private ArrayList<String> binaryOperators = new ArrayList<>(Arrays.asList("*", "/", "+", "-"));
-    private ArrayList<String> unaryOperators =  new ArrayList<>(Arrays.asList("-"));
-    private ArrayList<String> parameters =  new ArrayList<>(Arrays.asList("x", "y", "z"));
+    private final ArrayList<String> binaryOperators = new ArrayList<>(Arrays.asList("*", "/", "+", "-"));
+    private final ArrayList<String> unaryOperators =  new ArrayList<>(Arrays.asList("-"));
+    private final ArrayList<String> parameters =  new ArrayList<>(Arrays.asList("x", "y", "z"));
 
     Parser(){}
 
@@ -50,7 +53,7 @@ public class Parser {
     //убираем все ненужные символы
     private String normolizeExpression(String expression){
         StringBuilder result = new StringBuilder();
-        for (int i = 0; i < expression.length(); i++){
+        for (int i = 0; i < expression.length(); ++i){
             String nextLetter = String.valueOf(expression.charAt(i));
             if (Character.isDigit(expression.charAt(i)) || parameters.contains(nextLetter) || binaryOperators.contains(nextLetter) ||
                     unaryOperators.contains(nextLetter) || nextLetter.equals(")") || nextLetter.equals("(")){
@@ -61,12 +64,11 @@ public class Parser {
     }
 
 /*
-    null - if can't find more operators
-    Integer - number of next operator
+    return index next binary operator
+    if couldn't find return -1
  */
     private int getIndexNextBinaryOperator(String expression){
-        // в выражении может быть в середине унарный минус без скобок и тогда просблема ???
-        for (int indexOperator = 0; indexOperator < binaryOperators.size(); indexOperator++) { // проходимся по всем операторая в порядке преоритета
+        for (int indexOperator = 0; indexOperator < binaryOperators.size(); ++indexOperator) { // проходимся по всем операторам в порядке преоритета
             if(indexOperator == 3 && expression.charAt(0) == '-') continue; // если унарный минус в начале, то скипаем
             for (int indexInExpression = 0; indexInExpression < expression.length(); ++indexInExpression) {
                 String ope = binaryOperators.get(indexOperator);
@@ -78,17 +80,24 @@ public class Parser {
                 }
             }
         }
-        return -1;// doesn't found next binary operator
-    }
-
-    private int getIndexNextUnaryOperator(String expression){
         return -1;
     }
 
-//номер закрывающей скобки для заданой открывающей
-    private int getIndexNextBracket(String str, int index){ // индекс на первую скобку
+    private int getIndexNextUnaryOperator(String expression){
+        for (int indexOperator = 0; indexOperator < unaryOperators.size(); ++indexOperator){ // проходимся по всем операторам в порядке преоритета
+            if (String.valueOf(expression.charAt(0)).equals(unaryOperators.get(indexOperator))){
+                return 0;
+            }
+        }
+        return -1;
+    }
+/*
+ pre: получаем индекс открывающей скобки
+ post: возвращаем индекс на закрывающую
+ */
+    private int getIndexNextBracket(String str, int index){
         int count = 1;
-        for(int i = index + 1; i < str.length(); i++){
+        for(int i = index + 1; i < str.length(); ++i){
             if (str.charAt(i) == '(') count++; // обе можно объединить в одну лямбду
             if (str.charAt(i) == ')') count--;
             if (count ==  0) return i;
@@ -99,12 +108,12 @@ public class Parser {
     // првоерка что скобки расставлены правильно
     private boolean normolizeBracket(String str){
         int numb = 0;
-        for (int i = 0; i < str.length(); i++){
+        for (int i = 0; i < str.length(); ++i){
             if (str.charAt(i) == '(') numb++;
             if (str.charAt(i) == ')') numb--;
             if (numb < 0) return false;
         }
-        return numb != 0 ? false : true;
+        return numb == 0;
     }
 
     //убираем крайние скобки слева и справа
@@ -113,11 +122,11 @@ public class Parser {
         if(expression.charAt(0) != '(') return expression;
         int count = 1, i = 0;
         while (expression.charAt(i) == '('){
-            i++;
+            ++i;
             count++;
         }
         int min = count;
-        for (; i < expression.length(); i++){
+        for (; i < expression.length(); ++i){
             if(expression.charAt(i) == '(') count++;
             if(expression.charAt(i) == ')') count--;
             min = Math.min(min, count);
