@@ -2,9 +2,9 @@ package com.company.expression.binaryOperators;
 
 import com.company.expression.Expression;
 
-public class Add extends BinaryOperators {
+public final class Add extends BinaryOperators {
 
-    Add (Expression firstArg, Expression secondArg){
+    public Add (Expression firstArg, Expression secondArg){
         super(firstArg, secondArg, "+");
     }
 

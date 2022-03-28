@@ -2,9 +2,9 @@ package com.company.expression.unaryOperators;
 
 import com.company.expression.Expression;
 
-public class UnaryMinus extends UnaryOperators {
+public final class UnaryMinus extends UnaryOperators {
 
-    UnaryMinus(Expression expression) {
+    public UnaryMinus(Expression expression) {
         super(expression, "-");
     }
 

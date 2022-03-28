@@ -1,7 +1,8 @@
 package com.company.expression.args;
 
-public class Const extends Args {
-    Const (int value) {
+public final class Const extends Args {
+
+    public Const (int value) {
         super(value);
     }
 

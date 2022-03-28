@@ -3,9 +3,9 @@ package com.company.expression.binaryOperators;
 import com.company.expression.Expression;
 import com.company.expression.binaryOperators.BinaryOperators;
 
-public class Subtract extends BinaryOperators {
+public final class Subtract extends BinaryOperators {
 
-    Subtract(Expression firstArg, Expression secondArg){
+    public Subtract(Expression firstArg, Expression secondArg){
         super(firstArg, secondArg, "-");
     }
 

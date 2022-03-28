@@ -3,9 +3,9 @@ package com.company.expression.binaryOperators;
 import com.company.expression.Expression;
 import com.company.expression.binaryOperators.BinaryOperators;
 
-public class Divide extends BinaryOperators {
+public final class Divide extends BinaryOperators {
 
-    Divide (Expression firstArg, Expression secondArg){
+    public Divide (Expression firstArg, Expression secondArg){
         super(firstArg, secondArg, "/");
     }
 
