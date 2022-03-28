@@ -1,4 +1,6 @@
-package com.company.expression;
+package com.company.expression.unaryOperators;
+
+import com.company.expression.Expression;
 
 public class UnaryMinus extends UnaryOperators {
 

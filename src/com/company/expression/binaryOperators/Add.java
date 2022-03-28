@@ -1,4 +1,6 @@
-package com.company.expression;
+package com.company.expression.binaryOperators;
+
+import com.company.expression.Expression;
 
 public class Add extends BinaryOperators {
 

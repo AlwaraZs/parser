@@ -1,8 +1,10 @@
 package com.company.expression;
 
-import com.company.expression.unaryOperators.*;
-import com.company.expression.args.*;
+import com.company.expression.args.Const;
+import com.company.expression.args.Variable;
 import com.company.expression.binaryOperators.*;
+import com.company.expression.unaryOperators.UnaryMinus;
+
 import java.util.*;
 
 public class Parser {

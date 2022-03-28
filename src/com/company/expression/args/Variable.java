@@ -1,6 +1,6 @@
-package com.company.expression;
+package com.company.expression.args;
 
-public class Variable extends Variables{
+public class Variable extends Args {
 
     Variable(String name){
         super(name);
