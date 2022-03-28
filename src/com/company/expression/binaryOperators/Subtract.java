@@ -1,16 +1,15 @@
 package com.company.expression.binaryOperators;
 
-import com.company.expression.Expression;
-import com.company.expression.binaryOperators.BinaryOperators;
+import com.company.expression.TripleExpression;
 
 public final class Subtract extends BinaryOperators {
 
-    public Subtract(Expression firstArg, Expression secondArg){
+    public Subtract(TripleExpression firstArg, TripleExpression secondArg){
         super(firstArg, secondArg, "-");
     }
 
     @Override
-    public int evaluate(int x) {
-        return firstArg.evaluate(x) - secondArg.evaluate(x);
+    public int evaluate(int x, int y, int z) {
+        return firstArg.evaluate(x, y, z) - secondArg.evaluate(x, y, z);
     }
 }

@@ -20,7 +20,7 @@ public class Main {
         ).toString();
         System.out.println(a + "/n" + str);
          */
-        Parser parser = new Parser();
-        System.out.println(parser.parse("x * 2 + -1").evaluate(1));
+        ExpressionParser parser = new ExpressionParser();
+        System.out.println(parser.parse("(y - -(-(2 * x) + z))").evaluate(2, 3, 4));
     }
 }

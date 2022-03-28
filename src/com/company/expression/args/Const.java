@@ -12,7 +12,7 @@ public final class Const extends Args {
     }
 
     @Override
-    public int evaluate(int x) {
+    public int evaluate(int x, int y, int z) {
         return value;
     }
 }

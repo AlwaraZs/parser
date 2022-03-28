@@ -1,13 +1,13 @@
 package com.company.expression.binaryOperators;
 
-import com.company.expression.Expression;
+import com.company.expression.TripleExpression;
 
-public abstract class BinaryOperators implements Expression {
+public abstract class BinaryOperators implements TripleExpression {
     protected String name;
-    protected Expression firstArg;
-    protected Expression secondArg;
+    protected TripleExpression firstArg;
+    protected TripleExpression secondArg;
 
-    BinaryOperators(Expression firstArg, Expression secondArg, String name){
+    BinaryOperators(TripleExpression firstArg, TripleExpression secondArg, String name){
         this.firstArg = firstArg;
         this.secondArg = secondArg;
         this.name = name;

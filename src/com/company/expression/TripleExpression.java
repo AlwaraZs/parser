@@ -1,4 +1,5 @@
 package com.company.expression;
 
-public class TripleExpression {
+public interface TripleExpression{
+    int evaluate(int x, int y, int z);
 }

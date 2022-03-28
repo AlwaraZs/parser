@@ -1,8 +1,8 @@
 package com.company.expression.args;
 
-import com.company.expression.Expression;
+import com.company.expression.TripleExpression;
 
-public abstract class Args implements Expression {
+public abstract class Args implements TripleExpression {
     protected String name;
     protected int value;
 

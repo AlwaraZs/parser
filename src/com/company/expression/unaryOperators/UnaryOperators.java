@@ -1,12 +1,12 @@
 package com.company.expression.unaryOperators;
 
-import com.company.expression.Expression;
+import com.company.expression.TripleExpression;
 
-public abstract class UnaryOperators implements Expression {
+public abstract class UnaryOperators implements TripleExpression {
     String name;
-    Expression expression;
+    TripleExpression expression;
 
-    UnaryOperators(Expression expression, String name){
+    UnaryOperators(TripleExpression expression, String name){
         this.expression = expression;
         this.name = name;
     }
