@@ -1,15 +1,16 @@
 package com.company.expression.binaryOperators;
 
+import com.company.expression.Generics.AbstractGenericArithmetic;
 import com.company.expression.TripleExpression;
 
-public final class Multiply extends BinaryOperators {
-
-    public Multiply(TripleExpression firstArg, TripleExpression secondArg){
+public final class Multiply<T extends Number> extends BinaryOperators<T> {
+    public Multiply(TripleExpression<T> firstArg, TripleExpression<T> secondArg){
         super(firstArg, secondArg, "*");
     }
 
+
     @Override
-    public int evaluate(int x, int y, int z) {
-        return firstArg.evaluate(x, y, z) * secondArg.evaluate(x, y, z);
+    public AbstractGenericArithmetic<T> evaluate(AbstractGenericArithmetic<T> x, AbstractGenericArithmetic<T> y, AbstractGenericArithmetic<T> z) {
+        return firstArg.evaluate(x, y, z).multiply(secondArg.evaluate(x, y, z));
     }
 }

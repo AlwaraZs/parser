@@ -1,6 +1,8 @@
 package com.company.expression.args;
 
-public final class Variable extends Args {
+import com.company.expression.Generics.AbstractGenericArithmetic;
+
+public final class Variable<T extends Number> extends Args<T> {
 
     public Variable(String name){
         super(name);
@@ -12,7 +14,7 @@ public final class Variable extends Args {
     }
 
     @Override
-    public int evaluate(int x, int y, int z){
+    public AbstractGenericArithmetic<T> evaluate(AbstractGenericArithmetic<T> x, AbstractGenericArithmetic<T> y, AbstractGenericArithmetic<T> z){
         switch (name){
             case "x":
                 return x;
@@ -21,7 +23,7 @@ public final class Variable extends Args {
             case "z":
                 return z;
         }
-        //exseption
-        return -1;//never
+        //exception
+        return null;//never
     }
 }

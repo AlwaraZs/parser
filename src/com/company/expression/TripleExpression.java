@@ -1,5 +1,7 @@
 package com.company.expression;
 
-public interface TripleExpression{
-    int evaluate(int x, int y, int z);
+import com.company.expression.Generics.AbstractGenericArithmetic;
+
+public interface TripleExpression<T extends Number>{
+    AbstractGenericArithmetic<T> evaluate(AbstractGenericArithmetic<T> x, AbstractGenericArithmetic<T> y, AbstractGenericArithmetic<T> z);
 }

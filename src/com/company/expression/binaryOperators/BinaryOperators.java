@@ -2,12 +2,12 @@ package com.company.expression.binaryOperators;
 
 import com.company.expression.TripleExpression;
 
-public abstract class BinaryOperators implements TripleExpression {
+public abstract class BinaryOperators<T extends Number> implements TripleExpression<T> {
     protected String name;
-    protected TripleExpression firstArg;
-    protected TripleExpression secondArg;
+    protected TripleExpression<T> firstArg;
+    protected TripleExpression<T> secondArg;
 
-    BinaryOperators(TripleExpression firstArg, TripleExpression secondArg, String name){
+    BinaryOperators(TripleExpression<T> firstArg, TripleExpression<T> secondArg, String name){
         this.firstArg = firstArg;
         this.secondArg = secondArg;
         this.name = name;

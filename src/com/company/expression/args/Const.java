@@ -1,8 +1,10 @@
 package com.company.expression.args;
 
-public final class Const extends Args {
+import com.company.expression.Generics.AbstractGenericArithmetic;
 
-    public Const (int value) {
+public final class Const<T extends Number> extends Args<T> {
+
+    public Const (AbstractGenericArithmetic<T> value) {
         super(value);
     }
 
@@ -12,7 +14,7 @@ public final class Const extends Args {
     }
 
     @Override
-    public int evaluate(int x, int y, int z) {
+    public AbstractGenericArithmetic<T> evaluate(AbstractGenericArithmetic<T> x, AbstractGenericArithmetic<T> y, AbstractGenericArithmetic<T> z) {
         return value;
     }
 }

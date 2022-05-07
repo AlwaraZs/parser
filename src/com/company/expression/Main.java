@@ -1,5 +1,8 @@
 package com.company.expression;
 
+import com.company.expression.Generics.AbstractGenericArithmetic;
+import com.company.expression.Generics.DoubleGenericArithmetic;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -20,7 +23,10 @@ public class Main {
         ).toString();
         System.out.println(a + "/n" + str);
          */
-        ExpressionParser parser = new ExpressionParser();
-        System.out.println(parser.parse("(y - -(-(2 * x) + z))").evaluate(2, 3, 4));
+        ExpressionParser<Double> parser = new ExpressionParser<Double>();
+        DoubleGenericArithmetic arg1 = new DoubleGenericArithmetic(1);
+        DoubleGenericArithmetic arg2 = new DoubleGenericArithmetic(1);
+        DoubleGenericArithmetic arg3 = new DoubleGenericArithmetic(1);
+        System.out.println(parser.parse("-(-1 - -3)") .evaluate(arg1, arg2, arg3));
     }
 }
